@@ -8,6 +8,7 @@ espresso-core = "3.4.0"
 lifecycle-runtime-ktx = "2.3.1"
 activity-compose = "1.5.1"
 compose-bom = "2022.10.00"
+compose-webview = "0.31.3-beta"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -24,6 +25,7 @@ ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-webview = { module = "com.google.accompanist:accompanist-webview", version.ref="compose-webview" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "com-android-application" }
