@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.webview.crash.RenderCrashWebViewScreen
+import com.example.myapplication.webview.upload.UploadWebViewScreen
 import com.example.myapplication.webview.youtube.YouTubeInWebViewScreen
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationTheme {
                 // A surface container using the 'background' color from the theme
-                RenderCrashWebViewScreen()
+                UploadWebViewScreen()
             }
         }
     }
