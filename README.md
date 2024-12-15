@@ -1,9 +1,8 @@
-# 샘플 코드
-
-### 블로그 포스팅
+# 블로그 포스팅
 
 #### Common
 - [View의 TouchDelegate](https://jaeryo2357.tistory.com/145)
+- [Settings.Pannel](https://jaeryo2357.tistory.com/2)
 
 #### WebView
 - [WebView Youtube 전체 화면](https://jaeryo2357.tistory.com/129)
