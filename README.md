@@ -3,6 +3,7 @@
 #### Common
 - [View의 TouchDelegate](https://jaeryo2357.tistory.com/145)
 - [Settings.Pannel](https://jaeryo2357.tistory.com/2)
+- [알림 MessageStyle, 이미지 표시](https://jaeryo2357.tistory.com/150) 
 
 #### WebView
 - [WebView Youtube 전체 화면](https://jaeryo2357.tistory.com/129)
