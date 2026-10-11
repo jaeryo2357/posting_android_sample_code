@@ -1,14 +1,19 @@
-package com.example.nav3login
+package com.example.myapplication.navigation.login
 
-import androidx.compose.ui.test.*
+import androidx.compose.ui.test.assertTextContains
+import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.performClick
 import org.junit.Rule
 import org.junit.Test
 
 class LinkUiTest {
-    @get:Rule val compose = createAndroidComposeRule<MainActivity>()
+    @get:Rule
+    val compose = createAndroidComposeRule<NavigationLoginActivity>()
 
-    @Test fun loginAfterRecreationOpensLatestDestination() {
+    @Test
+    fun loginAfterRecreationOpensLatestDestination() {
         compose.onNodeWithTag("link-42").performClick()
         compose.onNodeWithTag("pending").assertTextContains("상품 42")
         compose.activityRule.scenario.recreate()
@@ -21,7 +26,8 @@ class LinkUiTest {
         compose.onNodeWithTag("pending").assertTextEquals("대기: 없음")
     }
 
-    @Test fun cancelDoesNotLoseList() {
+    @Test
+    fun cancelDoesNotLoseList() {
         compose.onNodeWithTag("link-42").performClick()
         compose.onNodeWithTag("cancel").performClick()
         compose.onNodeWithTag("stack").assertTextEquals("경로: 목록")

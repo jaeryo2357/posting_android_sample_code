@@ -1,4 +1,4 @@
-package com.example.nav3login
+package com.example.myapplication.navigation.login
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -14,7 +14,7 @@ import kotlinx.serialization.serializer
 
 private val productMatcher = UriDeepLinkMatcher(
     DeepLinkUri("https://shop.example.com/products/{id}"),
-    serializer<ProductDetail>()
+    serializer<ProductDetail>(),
 ).withBackStack { listOf<Route>(ProductList, it.key) }
 
 class LinkViewModel(private val saved: SavedStateHandle) : ViewModel() {
@@ -24,6 +24,7 @@ class LinkViewModel(private val saved: SavedStateHandle) : ViewModel() {
     val loggedIn = saved.getStateFlow("mock-session", false)
     val broken = saved.getStateFlow("broken", false)
     val previousRequest = saved.getStateFlow<String?>("previous-request", null)
+
     private val current: LinkState
         get() = Json.decodeFromString(stateJson.value)
 
@@ -34,14 +35,20 @@ class LinkViewModel(private val saved: SavedStateHandle) : ViewModel() {
     fun open(uri: String, replacePath: Boolean) {
         val match = productMatcher.match(DeepLinkRequest(uri = uri)) ?: return
         saved["previous-request"] = current.pending?.requestId
-        update(receive(
-            current, UUID.randomUUID().toString(), match.key,
-            match.backStack, loggedIn.value, replacePath
-        ))
+        update(
+            receive(
+                current,
+                UUID.randomUUID().toString(),
+                match.key,
+                match.backStack,
+                loggedIn.value,
+                replacePath,
+            ),
+        )
     }
 
     fun login(requestId: String) {
-        // Mock authentication; an obsolete callback must not navigate a new request.
+        // An obsolete authentication callback must not navigate a newer request.
         if (current.pending?.requestId != requestId) return
         saved["mock-session"] = true
         update(if (broken.value) LinkState() else complete(current, requestId))
