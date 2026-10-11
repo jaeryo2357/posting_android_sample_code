@@ -7,6 +7,7 @@
 
 #### Compose
 - [Compose LinkAnnotation](https://jaeryo2357.tistory.com/151)
+- [Navigation 3 · 로그인 대기 딥 링크 실습](samples/nav3-login) — 독립 프로젝트, 실패/개선 비교 및 재생성 확인
 
 #### WebView
 - [WebView Youtube 전체 화면](https://jaeryo2357.tistory.com/129)
