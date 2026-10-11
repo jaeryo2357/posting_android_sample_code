@@ -69,9 +69,9 @@ fun UploadWebViewScreen() {
     }
 
     LaunchedEffect(key1 = fileChooserIntent) {
-        if (fileChooserIntent != null) {
+        fileChooserIntent?.let { intent ->
             try {
-                launcher.launch(fileChooserIntent)
+                launcher.launch(intent)
             } catch (e: ActivityNotFoundException) {
                 // 기기에 알맞는 File picker가 없을 경우 취소
                 webViewChromeClient.cancelFileChooser()
